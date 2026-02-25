@@ -1,0 +1,11 @@
+shell
+	npm i tailwindcss @tailwindcss/vite
+
+dans vite.config.js
+	import tailwindcss from "@tailwindcss/vite";
+
+	dans le defineConfig
+		plugins: [tailwindcss()]
+
+dans le style.css global
+	@import "tailwindcss";
