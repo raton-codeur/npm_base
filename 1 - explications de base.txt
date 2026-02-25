@@ -1,0 +1,42 @@
+dossier src optionnel mais propre
+
+fichier JS en tant que module ES
+  → import / export
+
+  scope module par défaut
+    pas de mise dans "window" automatique
+
+  en mode deferred automatique
+    exécution après que le HTML a été parsé
+
+optionnel dans package.json
+  private true
+    ça évite de faire un npm publish accidentel
+
+    ça peut calmer certains warnings
+
+  type module
+    indication pour les scripts Node
+    que les fichier .js
+    sont des ES modules
+
+optionnel dans vite.config.js
+  alias
+    @ <-> /src
+
+  port
+    j'ai mis le port par défaut
+
+    avec strict port,
+    vite échoue si le port est déjà utilisé,
+    sinon
+      il utilise le premier port suivant dispo
+
+  open true
+    ouvrir automatiquement le navigateur
+    au démarrage
+
+    autre exemple
+      open: '/login'
+        ouvrir automatiquement :
+        http://localhost:5173/login

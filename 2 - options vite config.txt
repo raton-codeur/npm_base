@@ -1,0 +1,33 @@
+optionnel à rajouter dans vite.config.js
+  proxy: {
+    '/api': 'http://localhost:3000',
+    changeOrigin: true,
+  }
+    fetch("/api/users")
+    -> fetch("http://localhost:3000/api/users")
+
+    change origin
+      optionnel mais recommandé
+
+      changer l’en-tête Host de la requête proxifiée
+      pour qu’il corresponde à la cible
+
+      Host: localhost:5173
+      → Host: localhost:3000
+
+  base
+    modifier la base de l'url
+    sur laquelle le site est servi
+
+    base: '/mon-app/'
+      → index.html est sur http://localhost/mon-app/
+
+  options de build
+    nom du dossier de build
+      build: { outDir: "build" }
+        "dist" par défaut
+
+    nom du dossier des assets
+    dans le dossier de build
+      build: { assetsDir: "static" }
+        "assets" par défaut
