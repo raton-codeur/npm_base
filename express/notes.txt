@@ -1,0 +1,4 @@
+nodemon
+	juste pour dev
+
+	relancer le serveur quand on modifie un fichier

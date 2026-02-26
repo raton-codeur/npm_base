@@ -1,3 +1,7 @@
+utiliser le starter officiel
+(à la place de ce repo)
+	npm create vite
+
 dossier src optionnel mais propre
 
 fichier JS en tant que module ES

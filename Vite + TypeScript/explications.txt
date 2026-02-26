@@ -1,0 +1,74 @@
+Vite transpile le TypeScript avec esbuild
+
+	tsconfig sert surtout à configurer le check type
+
+tsconfig
+	target
+		optionnel mais conseillé
+
+		version de JavaScript
+		que TypeScript va produire
+		quand il transpile
+
+		ES2022 possible
+
+	libs ES2020, DOM, DOM.Iterable
+		optionnel mais conseillé
+
+		indiquer les APIs globales dispos
+			→ types dispos
+
+		ES2020 : types du JavaScript standard : Promise, Map, Set, Intl, etc.
+
+		DOM : tout ce qui est navigateur : window, document, fetch, Event, etc.
+
+		DOM iterable : types pour itérer certains objets DOM : for...of, NodeList, entries(), etc.
+
+	module ESNext
+		utiliser les ES Modules
+			garder les import/export en JavaScript
+
+	module resolution bundler
+		la façon dont TypeScript “cherche” un import
+
+		éviter les erreurs TypeScript "Cannot find module …"
+
+	noEmit
+		TypeScript n’écrit aucun fichier JavaScript en sortie
+		même si on lance tsc
+
+	skipLibCheck
+		ne pas vérifier les types
+		à l’intérieur des fichiers de déclaration
+		qui viennent des dépendances
+			notamment : ceux issus de node_modules
+
+		ça skip les erreurs
+		causées par des libs de node_modules
+		qui ont des .d.ts un peu bancals
+
+	strict
+		"mode hardcore” de TypeScript
+		→ typage exigeant et sûr
+
+		c'est l'intérêt de TypeScript
+
+		notamment
+			- strictNullChecks
+			- noImplicitAny
+			- strictFunctionTypes, strictBindCallApply
+			- strictPropertyInitialization
+
+	isolatedModules
+		forcer TypeScript
+		à vérifier que chaque fichier
+		peut être transpilé “tout seul”
+
+		c'est conseillé car Vite transpile souvent via [ esbuild / Babel
+			→ ils fonctionnent fichier par fichier ]
+
+vite-env.d.ts
+	donner à TypeScript les types fournis par Vite
+
+	accepter certains imports gérés par Vite
+		notamment les modules css

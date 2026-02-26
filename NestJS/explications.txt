@@ -1,0 +1,149 @@
+utiliser le starter officiel
+(à la place de ce repo)
+	npx @nestjs/cli new .
+
+NestJS
+-> TypeScript en CommonJS
+	(quasi toujours)
+
+dependencies
+	@nestjs/core
+		cœur de Nest
+
+		NestFactory, modules, DI…
+
+	@nestjs/common
+		décorateurs, outils courants, DI, pipes, guards, exceptions, ...
+
+		@Controller, @Get, @Injectable, exceptions…
+
+	@nestjs/platform-express
+		l’adaptateur HTTP basé sur Express
+
+		on peut mettre @nestjs/platform-fastify
+		pour utiliser fastify
+			du coup, il faut aussi
+			rajouter "fastify" aux dépendances
+
+	reflect-metadata
+		pour que Nest puisse lire
+		les métadonnées TypeScript
+		des décorateurs
+
+	rxjs
+		bibliothèque de “streams” nécessaire
+
+		<-> type : "Observable"
+
+devDependencies
+	typescript
+		pour compiler le TypeScript
+
+	@types/node
+		les types TypeScript de Node.js
+
+		process, Buffer, fs, path, http, etc.
+
+	pour compiler
+		tout ça c'est optionnel
+		mais pratique
+			sinon
+				compiler avec tsc
+				et lancer avec node dist/main.js
+
+		choisir entre :
+
+		● @nestjs/cli
+			outil “officiel” Nest
+
+			ça permet de faire :
+				nest build
+				nest start
+				nest start --watch
+
+		● ts-node
+			exécuter le TypeScript avec Node
+			sans compiler en JavaScript
+
+			outil historique
+
+			exemple
+				ts-node src/main.ts
+
+			ts-node-dev
+				pareil mais redémarrage automatique quand on modifie un fichier
+
+				il faut installer ts-node et ts-node-dev
+
+		● tsx
+			outil minimal
+
+			tsx src/main.ts
+			tsx watch src/main.ts
+
+			on peut forcer un tsconfig.json donné
+			avec l'option :
+				--tsconfig tsconfig.json
+
+tsconfig.json
+	voir les notes
+	de "Vite + TypeScript"
+
+	modules en common js
+		même si on utilise des import / export en TypeScript,
+		ils seront transcrit en common js
+
+	module resolution
+		valeur par défaut pour des modules common js
+
+		"résolution façon node"
+
+	esModuleInterop
+		rendre les imports plus “naturels”
+			surtout pour les librairies CommonJS
+
+			import foo from "the-lib";
+			foo();
+				au lieu de :
+				import * as foo from "the-lib";
+					ou :
+					import foo = require("the-lib");
+				foo();
+
+			import express from "express";
+				au lieu de :
+				import * as express from "express"
+
+	sourceMap: true
+		utile en dev
+
+		stack traces (en cas d'erreur)
+		qui pointent sur les fichiers .ts
+		au lieu du .js compilé
+
+		pour l'activer en prod :
+			node --enable-source-maps dist/main.js
+
+	"forceConsistentCasingInFileNames": true
+		optionnel mais pas mal pour éviter des erreurs
+		de majuscules/minuscules dans les imports
+
+	experimentalDecorators
+		activer les décorateurs en TypeScript
+			@Controller(), @Get(), @Module(), @Injectable()...
+
+	emitDecoratorMetadata
+		ajouter "les métadonnées de types pour les décorateurs"
+
+		ça aide nest à connaître les types pour la DI
+
+nest-cli.json
+	optionnel
+	mais bonne pratique pour la suite
+
+	sourceRoot
+		pour pourvoir lancer nest start / nest build
+		sans se poser de question
+
+	collection
+		si un jour on a besoin de faire "nest g ..."
