@@ -1,4 +1,6 @@
-remplacer server.js et ajouter cert.pem et key.pem
+on a juste :
+	- rajouté cert.pem, key.pem
+	- modifié server.js
 
 cert.pem et key.pem sont adaptés à ma CA locale
 
@@ -11,4 +13,3 @@ installer mkcert
 
 installer une CA locale
 	mkcert -install
-

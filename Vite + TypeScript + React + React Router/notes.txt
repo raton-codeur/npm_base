@@ -1,0 +1,31 @@
+react-router
+→ moteur du router
+
+react-router-dom
+→ couche "web"
+qui utilise react-router
+
+normalement,
+pas besoin d'installer react-router,
+juste react-router-dom
+	react-router-dom
+	installe react-router
+
+autre façon de faire, plus simple :
+	on garde app
+	et on utilise juste des trucs de react-router :
+
+	function App() {
+	return (
+	<>
+		<nav>
+			<Link to="/">Home</Link>
+			<Link to="/about">About</Link>
+		</nav>
+		<Routes>
+			<Route path="/" element={<Home />} />
+			<Route path="/about" element={<About />} />
+			<Route path="*" element={<NotFound />} />
+		</Routes>
+	</>
+	);}

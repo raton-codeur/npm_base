@@ -1,4 +1,4 @@
-import "./style.css";
+import "./global.css";
 import s from "./main.module.css";
 
 document.querySelector("#app").innerHTML = `

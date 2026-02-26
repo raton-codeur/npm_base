@@ -1,0 +1,50 @@
+voir les notes
+de "Vite + TypeScript"
+
+modules en common js
+	même si on utilise des import / export en TypeScript,
+	ils seront transcrit en common js
+
+module resolution
+	valeur par défaut pour des modules common js
+
+	"résolution façon node"
+
+esModuleInterop
+	rendre les imports plus “naturels”
+		surtout pour les librairies CommonJS
+
+		import foo from "the-lib";
+		foo();
+			au lieu de :
+			import * as foo from "the-lib";
+				ou :
+				import foo = require("the-lib");
+			foo();
+
+		import express from "express";
+			au lieu de :
+			import * as express from "express"
+
+sourceMap: true
+	utile en dev
+
+	stack traces (en cas d'erreur)
+	qui pointent sur les fichiers .ts
+	au lieu du .js compilé
+
+	pour l'activer en prod :
+		node --enable-source-maps dist/main.js
+
+"forceConsistentCasingInFileNames": true
+	optionnel mais pas mal pour éviter des erreurs
+	de majuscules/minuscules dans les imports
+
+experimentalDecorators
+	activer les décorateurs en TypeScript
+		@Controller(), @Get(), @Module(), @Injectable()...
+
+emitDecoratorMetadata
+	ajouter "les métadonnées de types pour les décorateurs"
+
+	ça aide nest à connaître les types pour la DI

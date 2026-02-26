@@ -1,0 +1,50 @@
+react-dom
+	le “pont” entre React et le navigateur
+	→ createRoot, render, ...
+
+	createRoot et render
+		brancher l'arbre de composants React
+		sur un élément HTML
+
+		c'est la façon recommandée
+		depuis React 18
+
+plugin pour Vite
+	devDependency
+		@vitejs/plugin-react
+
+	dans vite.config.js
+		plugin ajouté dans la config
+
+@types/react @types/react-dom
+	définitions de types TypeScript
+	pour React et React-DOM
+
+dans tsconfig
+	jsx: react-jsx
+		dire à TypeScript
+		comment gérer le JSX
+
+		souvent déjà activé
+		mais c'est standard
+
+balise StrictMode
+	“mode debug” de React
+	→ pendant le développement
+
+	aide à détecter :
+		effets de bord
+			exemple
+				modifier un truc global
+				pendant un rendu
+
+		problèmes dans les useEffects
+
+		trucs dépréciés
+
+	ça arrive qu'il re-monte certains composants
+	et re-déclenche les effets
+		on voit parfois des logs en double
+
+		ça permet de voir
+		si le code peut être exécuté plus d'une fois sans casse

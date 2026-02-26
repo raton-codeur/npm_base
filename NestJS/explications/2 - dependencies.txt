@@ -1,0 +1,27 @@
+@nestjs/core
+	cœur de Nest
+
+	NestFactory, modules, DI…
+
+@nestjs/common
+	décorateurs, outils courants, DI, pipes, guards, exceptions, ...
+
+	@Controller, @Get, @Injectable, exceptions…
+
+@nestjs/platform-express
+	l’adaptateur HTTP basé sur Express
+
+	on peut mettre @nestjs/platform-fastify
+	pour utiliser fastify
+		du coup, il faut aussi
+		rajouter "fastify" aux dépendances
+
+reflect-metadata
+	pour que Nest puisse lire
+	les métadonnées TypeScript
+	des décorateurs
+
+rxjs
+	bibliothèque de “streams” nécessaire
+
+	<-> type : "Observable"

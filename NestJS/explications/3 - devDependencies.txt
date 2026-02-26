@@ -1,0 +1,48 @@
+typescript
+	pour compiler le TypeScript
+
+@types/node
+	les types TypeScript de Node.js
+
+	process, Buffer, fs, path, http, etc.
+
+pour compiler
+	tout ça c'est optionnel
+	mais pratique
+		sinon
+			compiler avec tsc
+			et lancer avec node dist/main.js
+
+	choisir entre :
+
+	● @nestjs/cli
+		outil “officiel” Nest
+
+		ça permet de faire :
+			nest build
+			nest start
+			nest start --watch
+
+	● ts-node
+		exécuter le TypeScript avec Node
+		sans compiler en JavaScript
+
+		outil historique
+
+		exemple
+			ts-node src/main.ts
+
+		ts-node-dev
+			pareil mais redémarrage automatique quand on modifie un fichier
+
+			il faut installer ts-node et ts-node-dev
+
+	● tsx
+		outil minimal
+
+		tsx src/main.ts
+		tsx watch src/main.ts
+
+		on peut forcer un tsconfig.json donné
+		avec l'option :
+			--tsconfig tsconfig.json

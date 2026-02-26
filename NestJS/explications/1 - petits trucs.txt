@@ -1,0 +1,18 @@
+utiliser le starter officiel
+(à la place de ce repo)
+	npx @nestjs/cli new .
+
+NestJS
+-> TypeScript en CommonJS
+	(quasi toujours)
+
+nest-cli.json
+	optionnel
+	mais bonne pratique pour la suite
+
+	sourceRoot
+		pour pourvoir lancer nest start / nest build
+		sans se poser de question
+
+	collection
+		si un jour on a besoin de faire "nest g ..."
